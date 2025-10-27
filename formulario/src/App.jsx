@@ -32,8 +32,14 @@ function App() {
 const handleSubmit = (e) => {
   e.preventDefault(); 
   setOpen(true);      
-  console.log(datos);
+  
 };
+
+const enviarDatos = () =>{
+  console.log(datos);
+  setOpen(false);
+  limpiar();
+}
 
  const [open, setOpen] = React.useState(false);
  const handleChangeName = (e) =>{
@@ -153,9 +159,9 @@ const handleSubmit = (e) => {
             <FormControl required fullWidth>
               <InputLabel>Lenguaje de programación favorito</InputLabel>
                 <Select onChange={handleChangeLanguage} value={datos.lenguajepro}>
-                  <MenuItem value={10}>Java</MenuItem>
-                  <MenuItem value={20}>JavaScript</MenuItem>
-                  <MenuItem value={30}>Python</MenuItem>
+                  <MenuItem value={"Java"}>Java</MenuItem>
+                  <MenuItem value={"JavaScript"}>JavaScript</MenuItem>
+                  <MenuItem value={"Python"}>Python</MenuItem>
                 </Select>
             </FormControl>
           </Grid>
@@ -186,7 +192,7 @@ const handleSubmit = (e) => {
               </DialogContent>
               <DialogActions>
                 <Button onClick={handleClose}>No</Button>
-                <Button onClick={handleClose}>Sí</Button>
+                <Button onClick={enviarDatos}>Sí</Button>
               </DialogActions>
 
           </Dialog>
